@@ -1,0 +1,38 @@
+{% extends 'studentApp/base.html' %}
+
+{% load static %}
+
+
+
+{% block title %}
+    Notes : Tool Nation
+{% endblock title %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock css %}
+    
+
+    
+{% block content %}
+
+<h1>Notes</h1>
+
+<div class="projects_container">    
+    {% for note in notes_ %}
+           {% include 'studentApp/includes/note_tile.html' %}
+    {% endfor %}        
+    <div class="note new">
+        <div class="info_container">
+           <form action="{% url 'notes' project_id=project_id_ %}" method="post">
+                {% csrf_token %}
+                <textarea name="note" id="" cols="30" rows="10"></textarea>
+                <button type="submit">Add</button>
+           </form>
+        </div> 
+    </div>
+</div>
+    
+{% endblock content %}
+    

@@ -1,0 +1,41 @@
+{% extends 'studentApp/base.html' %}
+
+{% load static %}
+
+
+
+{% block title %}
+Reminder : Tool Nation
+{% endblock title %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock css %}
+    
+
+    
+{% block content %}
+
+
+<h1>Reminder</h1>
+
+<div class="projects_container">    
+        {% for reminder in reminders_ %}
+               {% include 'studentApp/includes/reminder_tile.html' %}
+        {% endfor %}        
+        <div class="reminder new">
+            <div class="info_container">
+               <form action="{% url 'reminders' project_id=project_id_ %}" method="post">
+                    {% csrf_token %}
+                    {{form.media}}
+                    {{form.as_ul}}
+                    <button type="submit">Add</button>
+               </form>
+            </div> 
+        </div>
+</div>
+
+    
+{% endblock content %}
+    

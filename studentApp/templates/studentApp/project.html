@@ -1,0 +1,58 @@
+{% extends 'studentApp/base.html' %}
+
+{% load static %}
+
+
+
+{% block title %}
+    {{project.name}}
+{% endblock title %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock css %}
+    
+
+    
+{% block content %}
+
+<div class="cards-container">
+
+<a href="{% url 'whiteboard' project_id=project.id %}">
+    <div class="card">
+        Whiteboard
+    </div>
+</a>
+
+<a href="{% url 'notepad' project_id=project.id %}">
+    <div class="card">
+        Notepad
+    </div>
+</a>
+
+<a href="{% url 'notes' project_id=project.id %}">
+    <div class="card">
+        Notes
+    </div>
+</a>
+
+<a href="{% url 'files' project_id=project.id %}">
+    <div class="card">
+        Files
+    </div>
+</a>
+
+<a href="{% url 'reminders' project_id=project.id %}">
+    <div class="card">
+        Reminders
+    </div>
+</a>
+
+
+
+</div>
+ 
+{% endblock content %}
+    
+

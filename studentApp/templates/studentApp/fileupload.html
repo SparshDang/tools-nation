@@ -1,0 +1,41 @@
+{% extends 'studentApp/base.html' %}
+
+{% load static %}
+{% load custom_filter %}
+
+
+
+{% block title %}
+    Upload File
+{% endblock title %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock css %}
+    
+
+    
+{% block content %}
+    <h2>File upload</h2>
+
+    
+<div class="files_container">
+    {% for file in files %}
+ 
+    <div class="file">
+        {{file.file.name|get_base_name}}
+        <a href="{{ file.file.url }}" download> Download </a>
+
+    </div>
+    {% endfor %}
+</div>
+
+    <form enctype="multipart/form-data" action="{% url 'files' project_id=project_id_  %}"  method="post" class="fileForm">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Upload</button>
+    </form>
+    
+{% endblock content %}
+    

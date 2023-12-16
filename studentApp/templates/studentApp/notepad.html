@@ -1,0 +1,32 @@
+{% extends 'studentApp/base.html' %}
+
+{% load static %}
+
+
+
+{% block title %}
+    Notepad : Tool Nation
+{% endblock title %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock css %}
+    
+
+    
+{% block content %}
+
+<h1>Notepad</h1>
+
+<form action="{% url 'notepad' project_id=project_id_ %}" method="post">
+    {% csrf_token %}
+    {{ form.media }}
+    {{form.body}}
+    <button type="submit">Save</button>
+</form>
+
+
+    
+{% endblock content %}
+    

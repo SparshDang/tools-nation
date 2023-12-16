@@ -1,0 +1,35 @@
+{% extends 'studentApp/base.html' %}
+
+{% load static %}
+
+
+
+{% block title %}
+    Tool Nation
+{% endblock title %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock css %}
+    
+
+    
+{% block content %}
+
+
+
+    <div class="projects_container">    
+            {% for project in projects%}
+                   {% include 'studentApp/includes/project_tile.html' %}
+            {% endfor %}        
+            <div class="card new">
+                <div class="info_container">
+                    <a href="{% url 'new_project' %}">Create New</a>
+                </div> 
+            </div>
+    </div>
+
+    
+{% endblock content %}
+    

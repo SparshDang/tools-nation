@@ -1,0 +1,15 @@
+<div class="project_tile">
+    <div class="info_container">
+        {% if note.title %}
+        <h2>{{note.title}}</h2>
+        {% endif %}
+        <p>{{note.text}}</p>
+    </div>
+    <div class="delete_button">
+        <form action="{% url 'notes' project_id=note.project_id %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="delete" value="{{note.id}}">
+            <input type="submit" value="🗑️">
+        </form>
+    </div>
+</div>

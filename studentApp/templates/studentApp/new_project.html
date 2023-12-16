@@ -1,0 +1,25 @@
+{% extends 'studentApp/base.html' %}
+
+{% load static %} 
+
+{% block title %} Create Project : Tool Nation {% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}" />
+{% endblock css %}
+
+{% block content %}
+
+<main class="create">
+  <h1>Create</h1>
+  <form action="{% url 'new_project' %}" class="form" method="post">
+    {% csrf_token %} 
+    {% for field in form %}
+    <label for="{{field.id_for_label}}">{{field.label}}</label>
+    {{field}} 
+    {% endfor %}
+    <button type="submit" >Create</button>
+  </form>
+</main>
+
+{% endblock content %}

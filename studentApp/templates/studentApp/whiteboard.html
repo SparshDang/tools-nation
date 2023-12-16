@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiteboard</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    
+    {% if whiteboard %}
+        <div style="display: none" id="jsonData" data-json="{{ whiteboard.file.url }}">{{whiteboard.file.url}}</div>
+    {% endif %}
+        
+
+    <canvas id="canvas"></canvas>
+    <form method="post" action="{% url 'whiteboard' project_id=project_id_  %}" >
+        {% csrf_token %}
+        <input type="hidden" name="image_data" id="image_data">
+        <button type="submit">Save</button>
+    </form>
+
+    <input type="checkbox" name="erase" id="eraser">
+    <label for="erase">Eraser</label>
+
+    <script src="{% static 'js/whiteboard.js' %}"></script>
+
+</body>
+</html>

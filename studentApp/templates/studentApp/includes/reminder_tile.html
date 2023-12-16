@@ -1,0 +1,13 @@
+<div class="project_tile">
+    <div class="info_container">
+        <h2>{{reminder.text}}</h2>
+        <p>{{reminder.schedule}}</p>
+    </div>
+    <div class="delete_button">
+        <form action="{% url 'reminders' project_id=reminder.project_id %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="delete" value="{{reminder.id}}">
+            <input type="submit" value="🗑️">
+        </form>
+    </div>
+</div>

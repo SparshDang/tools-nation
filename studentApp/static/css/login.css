@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+body{
+    background-color: #F7D060;
+}
+
+.login_container, .create{
+    transform: translate(-50%,-50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    border: 2px solid #98D8AA;
+    width: 35%;
+    background-color: white;
+
+    padding: 10px;
+
+    border-radius: 2em;
+    color: #FF6D60;
+
+}
+
+.form{
+
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+
+    font-size: 1.5rem;
+}
+
+hr{
+    background-color: #98D8AA;
+    height: 5px;
+
+}
+
+
+.form > button{
+    width: 40%;
+    align-self: center;
+
+    margin: 5px;
+    padding: 10px;
+
+    font-size: 1.5rem;
+    border: none;
+    background-color: transparent;
+    color : #FF6D60
+}
